@@ -4,9 +4,9 @@ set -euo pipefail
 WHEEL=rkrpi-0.1.0-py3-none-any.whl
 
 poetry build
-scp ./dist/$WHEEL root@raspberrypi.local:/tmp/
+scp ./dist/$WHEEL root@rkrpi.local:/tmp/
 
-ssh -T root@raspberrypi.local <<EOF
+ssh -T root@rkrpi.local <<EOF
     pip3 install -I /tmp/$WHEEL
 
     echo Restarting rkrpi.nmeaclient.service...
